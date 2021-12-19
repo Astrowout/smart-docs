@@ -16,7 +16,7 @@
 
 .upload:hover {
   cursor: pointer;
-  background-color: hsla(var(--color-primary), 0.1);
+  background-color: rgba(var(--color-primary), 0.1);
 }
 
 .altUpload {
@@ -32,11 +32,11 @@
 
 .altUpload:hover {
   cursor: pointer;
-  background-color: hsla(var(--color-primary), 0.1);
+  background-color: rgba(var(--color-primary), 0.1);
 }
 
 .icon {
-  width: 48px;
+  width: 40px;
 }
 
 .altIcon {

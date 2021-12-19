@@ -5,31 +5,28 @@ import styles from './HomepageFeatures.module.css';
 const FeatureList = [
   {
     title: 'Easy to Use',
-    Svg: require('../../../static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('../../../static/img/feature1.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Smart docs lets you focus on what matters for your users. Set up your <strong>smart contract documentation</strong> easily to make it ready for using it in Web 3.0 🚀
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Just like Swagger API docs',
+    Svg: require('../../../static/img/feature2.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        REST or GraphQL API documentation is used by frontenders all over the world. Soon <strong>Smart Contract ABI documentation</strong> will be too.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Always available',
+    Svg: require('../../../static/img/feature3.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Come back later and start using your docs right away. Your uploaded smart contract documentation will be useable without having to re-upload.
       </>
     ),
   },
@@ -41,7 +38,7 @@ function Feature({Svg, title, description}) {
       <div className="text--center">
         <Svg className={styles.featureSvg} alt={title} />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className="text--center padding-horiz--md margin-top--md">
         <h3>{title}</h3>
         <p>{description}</p>
       </div>

@@ -24,7 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          editUrl: 'https://github.com/wowtvds/smart-docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -36,66 +36,94 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'contact_us',
+        content:
+          'We are adding new features gradually. Please <a target="_blank" rel="noopener noreferrer" href="mailto:wout.workspace@gmail.com">contact us</a> to report any feedback 🙏',
+        backgroundColor: '#ffffff',
+        textColor: '#1f7368',
+        isCloseable: false,
+      },
       navbar: {
         title: 'Smart docs',
         logo: {
           alt: 'Smart docs',
           src: 'img/logo.svg',
+          width: 36,
+          height: 36,
         },
         items: [
+          {
+            position: 'left',
+            to: 'upload',
+            label: 'Upload ABI',
+          },
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
+            label: 'Your smart contracts',
+          },
+          {
+            type: 'doc',
+            docId: 'intro',
+            position: 'right',
             label: 'Docs',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/wowtvds/smart-docs',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
             position: 'right',
           },
         ],
       },
       footer: {
-        style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Get started',
             items: [
               {
-                label: 'Docs',
+                label: 'Introduction to Smart docs',
                 to: '/docs/intro',
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Docs',
+                to: '/docs/test',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Docs',
+                to: '/docs/nog-wa',
               },
             ],
           },
           {
-            title: 'More',
+            title: 'About this project',
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/wowtvds/smart-docs',
+              },
+            ],
+          },
+          {
+            title: 'About',
+            items: [
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/daily.tech.express/',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/wout-vandesompele',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/the__asstronaut',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

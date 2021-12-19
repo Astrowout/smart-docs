@@ -79,7 +79,7 @@ export default function FileUpload() {
 
                     <UploadIcon className={styles.icon} />
 
-                    <span className={clsx(styles.label, 'margin-top--md')}>
+                    <span className={clsx(styles.label, 'margin-top--sm')}>
                       Upload ABI
                     </span>
                   </label>
