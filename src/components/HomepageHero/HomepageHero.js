@@ -16,7 +16,7 @@ export default function HomepageHero() {
         <div className={styles.buttons}>
           <Link
             className="button button--outline button--active button--primary button--lg"
-            to="/docs/intro">
+            to="/import">
             Get started
           </Link>
         </div>

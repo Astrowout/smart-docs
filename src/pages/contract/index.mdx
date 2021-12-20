@@ -1,0 +1,278 @@
+---
+title: Your smart contract docs
+description: The easiest Solidity ABI documentation visualizer.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Details from '@theme/Details';
+import TOCInline from '@theme/TOCInline';
+import styles from './styles.module.css';
+
+import { useContract } from "../../hooks";
+
+export const ContractData = ({ data = null }) => {
+	const { contract, events, functions } = useContract();
+	if (!contract || !data) {
+		return null;
+	}
+	switch (data) {
+		case "filename":
+			return contract[data] || "/";
+			break;
+		case "events":
+			return events.length;
+			break;
+		case "functions":
+			return functions.length;
+			break;
+		default:
+			return null;
+			break;
+	}
+	return null;
+};
+
+export const getTOC = (instances) => instances.map(instance => ({
+	value: instance.name,
+	id: instance.name,
+	children: [],
+	level: 3,
+}));
+
+export const ContractConstructor = () => {
+	const { constructor } = useContract();
+	if (!!constructor) {
+		return (
+			<div>
+				<div className={styles.instance}>
+					<h3 id={constructor.type}>
+						<code className={styles.mutability}>{constructor.stateMutability}</code>
+					</h3>
+					<div>
+						<h4>
+							Parameters
+						</h4>
+						{!!constructor.inputs.length ? (
+							<table>
+								<thead>
+									<tr align="left">
+										<th>Name</th>
+										<th>Type</th>
+									</tr>
+								</thead>
+								<tbody>
+									{constructor.inputs.map(input => (
+										<tr key={input.name}>
+											<td>
+												<strong>
+													{input.name}
+												</strong>
+											</td>
+											<td>
+												<code>
+													{input.type}
+												</code>
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						): (
+							<p className={styles.emptyState}>No parameters found in the constructor.</p>
+						)}
+					</div>
+				</div>
+			</div>
+		);
+	}
+	return (
+		<p className={styles.emptyState}>No <strong>constructor</strong> found in this smart contract.</p>
+	);
+};
+
+export const ContractFunctions = () => {
+	const { functions } = useContract();
+	if (!!functions.length) {
+		return (
+			<div>
+				<TOCInline toc={getTOC(functions)} />
+				<hr className={styles.hr} />
+				{functions.map(fn => (
+					<div key={fn.name} className={styles.instance}>
+						<h3 id={fn.name}>
+							<code className={styles.title}>{ fn.name }</code>
+							<code className={styles.mutability}>{fn.stateMutability}</code>
+						</h3>
+						<div className={styles.tables}>
+							<div>
+								<h4>
+									Parameters
+								</h4>
+								{!!fn.inputs.length ? (
+									<table>
+										<thead>
+											<tr align="left">
+												<th>Name</th>
+												<th>Type</th>
+											</tr>
+										</thead>
+										<tbody>
+											{fn.inputs.map(input => (
+												<tr key={input.name}>
+													<td>
+														<strong>
+															{input.name || '/'}
+														</strong>
+													</td>
+													<td>
+														<code>
+															{input.type}
+														</code>
+													</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								) : (
+									<p className={styles.emptyState}>No parameters for this function.</p>
+								)}
+							</div>
+							<div>
+								<h4>
+									Return values
+								</h4>
+								{!!fn.outputs.length ? (
+									<table>
+										<thead>
+											<tr align="left">
+												<th>Name</th>
+												<th>Type</th>
+											</tr>
+										</thead>
+										<tbody>
+											{fn.outputs.map(output => (
+												<tr key={output.name}>
+													<td>
+														<strong>
+															{output.name || '/'}
+														</strong>
+													</td>
+													<td>
+														<code>
+															{output.type}
+														</code>
+													</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								) : (
+									<p className={styles.emptyState}>No return values for this function.</p>
+								)}
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		);
+	}
+	return  (
+		<p className={styles.emptyState}>No <strong>functions</strong> found for this smart contract.</p>
+	);
+};
+
+export const ContractEvents = () => {
+	const { events } = useContract();
+	if (!!events.length) {
+		return (
+			<div>
+				<TOCInline toc={getTOC(events)} />
+				<hr className={styles.hr} />
+				{events.map(event => (
+					<div key={event.name} className={styles.instance}>
+						<h3 id={event.name}>
+							<code className={styles.title}>{ event.name }</code>
+						</h3>
+						<div>
+							<h4>
+								Parameters
+							</h4>
+							{!!event.inputs.length ? (
+								<table>
+									<thead>
+										<tr align="left">
+											<th>Name</th>
+											<th>Type</th>
+											<th>Indexed</th>
+										</tr>
+									</thead>
+									<tbody>
+										{event.inputs.map(input => (
+											<tr key={input.name}>
+												<td>
+													<strong>
+														{input.name}
+													</strong>
+												</td>
+												<td>
+													<code>
+														{input.type}
+													</code>
+												</td>
+												<td>
+													<code>
+														{JSON.stringify(input.indexed)}
+													</code>
+												</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							): (
+								<p className={styles.emptyState}>No parameters found for this event.</p>
+							)}
+						</div>
+					</div>
+				))}
+			</div>
+		);
+	}
+	return (
+		<p className={styles.emptyState}>No <strong>events</strong> found for this smart contract.</p>
+	);
+};
+
+# Your smart contract docs
+
+<TOCInline toc={toc} />
+
+:::caution Read first!
+
+This representation of your smart contract is one on one with your provided ABI file. If you make changes to your contract, please **[import a new JSON file](/import)** to view your latest changes.
+
+:::
+
+---
+
+## General info
+
+- Filename: **<ContractData data="filename"/>**
+- Number of EVM logging *events*: **<ContractData data="events"/>**
+- Number of *functions*: **<ContractData data="functions"/>**
+
+<br />
+
+## `Constructor`
+
+<ContractConstructor/>
+
+## Functions
+
+<ContractFunctions/>
+
+<br />
+
+## Events (for EVM logging)
+
+<ContractEvents/>

@@ -1,0 +1,12 @@
+.center {
+  justify-content: center;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-weight: bold;
+}

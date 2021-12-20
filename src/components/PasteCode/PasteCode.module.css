@@ -1,0 +1,27 @@
+.code {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  padding: 12px 14px;
+  resize: none;
+  overflow: auto;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  opacity: 0.6;
+}

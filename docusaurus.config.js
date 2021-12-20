@@ -21,11 +21,8 @@ const config = {
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/wowtvds/smart-docs',
-        },
+        docs: false,
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -44,6 +41,12 @@ const config = {
         textColor: '#1f7368',
         isCloseable: false,
       },
+      colorMode: {
+        switchConfig: {
+          darkIcon: '💡',
+          lightIcon: ' ',
+        },
+      },
       navbar: {
         title: 'Smart docs',
         logo: {
@@ -55,20 +58,18 @@ const config = {
         items: [
           {
             position: 'left',
-            to: 'upload',
-            label: 'Upload ABI',
+            to: 'import',
+            label: 'Import ABI',
           },
           {
-            type: 'doc',
-            docId: 'intro',
             position: 'left',
-            label: 'Your smart contracts',
+            to: 'contract',
+            label: 'Your smart contract',
           },
           {
-            type: 'doc',
-            docId: 'intro',
+            to: 'intro',
             position: 'right',
-            label: 'Docs',
+            label: 'How to use',
           },
           {
             href: 'https://github.com/wowtvds/smart-docs',
@@ -85,15 +86,15 @@ const config = {
             items: [
               {
                 label: 'Introduction to Smart docs',
-                to: '/docs/intro',
+                to: 'intro',
               },
               {
                 label: 'Docs',
-                to: '/docs/test',
+                to: 'test',
               },
               {
                 label: 'Docs',
-                to: '/docs/nog-wa',
+                to: 'nog-wa',
               },
             ],
           },

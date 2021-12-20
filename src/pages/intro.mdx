@@ -1,0 +1,175 @@
+---
+title: How to use Smart Docs
+description: The easiest Solidity ABI documentation visualizer.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import { useContract } from "../hooks";
+
+export const IStatus = {
+	LOADED: "ABI Loaded",
+	NOT_LOADED: "ABI Missing",
+}
+
+export const Button = ({children, url = "/"}) => (
+	<a
+		href={url}
+		style={{
+			backgroundColor: '#2ca494',
+			display: 'inline-flex',
+			alignItems: 'center',
+			borderRadius: '4px',
+			color: '#fff',
+			fontWeight: 'bold',
+			fontSize: '18px',
+			padding: '0.8rem 1.6rem',
+			marginBottom: '0.8rem'
+		}}
+	>
+		{children}
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ marginLeft: '0.6rem' }} xmlns="http://www.w3.org/2000/svg">
+			<path d="M9 16H15V10H19L12 3L5 10H9V16ZM12 5.83L14.17 8H13V14H11V8H9.83L12 5.83ZM5 18H19V20H5V18Z" fill="#fff"/>
+		</svg>
+	</a>
+);
+
+export const Status = () => {
+	const { contractLoaded } = useContract();
+	return (
+		<span
+			style={{
+				borderStyle: 'solid',
+				borderWidth: '2px',
+				borderColor: contractLoaded ? '#22c55e' : '#ef4444',
+				display: 'inline-block',
+				borderRadius: '99px',
+				fontSize: '14px',
+				fontWeight: 'bold',
+				color: contractLoaded ? '#22c55e' : '#ef4444',
+				padding: '0.2rem 0.8rem',
+				marginBottom: '0.8rem'
+			}}
+		>
+			{contractLoaded ? IStatus.LOADED : IStatus.NOT_LOADED}
+		</span>
+	)
+};
+
+# Introduction to Smart docs
+
+Let's discover **Smart docs in less than 2 minutes**.
+
+<br />
+
+## Getting Started
+
+Get started by **uploading your ABI with the button below**.
+
+Or just **use Smart docs with an already loaded ABI interface from local storage**.
+
+<br />
+
+## 1. Uploading a new ABI JSON file
+
+Generate your **smart contract documentation** by uploading your ABI JSON file:
+
+<Button url="/import">Upload ABI</Button>
+
+<br />
+<br />
+
+## 2. Using an already loaded ABI interface
+
+View the documentation **status** in the top right corner.
+
+### Current docs status
+
+<Status></Status>
+
+View your **[contract](/contract)** to get some basic information about your smart contract.
+
+---
+
+<br />
+
+## Why this project exists?
+
+The transfer from backend to frontend can be very smooth when working with Web 2.0 technologies like REST or GraphQL API's. Many tools exist to make your life easier and provide beautiful documentation for your frontend developers.
+
+In the Web 3.0 space things are different. To visualize the available properties and functions in a smart contract, you need to have backend tools in order to get a good understanding of how a smart contract can be used. With Smart Docs you get a beautiful documentation page like you get with Swagger for example.
+
+<Tabs>
+<TabItem value="then" label="Provided ABI" default>
+
+```JSON
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "oldOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnerSet",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "changeOwner",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+```
+
+</TabItem>
+
+<TabItem value="now" label="Smart Docs visualisation">
+	Beautiful docs
+</TabItem>
+</Tabs>
+
+<br />
+
+## Beta project
+
+:::info
+
+This project is fully developed after hours and is mainly a side project. If you see any bugs or **have some great ideas about how to improve this product**, please contact us on the following email address: **[wout.workspace@gmail.com](mailto:wout.workspace@gmail.com)**.
+
+:::

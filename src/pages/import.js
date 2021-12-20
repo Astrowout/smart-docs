@@ -2,17 +2,20 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { HomepageHero, HomepageFeatures, FileUpload } from '../components';
+import { ImportOptions, FileUpload, PasteCode } from '../components';
 
-export default function Upload() {
+export default function Import() {
   const {siteConfig} = useDocusaurusContext();
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`Import ABI - ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <main>
-        <FileUpload />
+        <ImportOptions>
+          <PasteCode />
+          <FileUpload />
+        </ImportOptions>
       </main>
     </Layout>
   );
