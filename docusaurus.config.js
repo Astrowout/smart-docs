@@ -85,16 +85,16 @@ const config = {
             title: 'Get started',
             items: [
               {
-                label: 'Introduction to Smart docs',
+                label: 'How to use Smart docs',
                 to: 'intro',
               },
               {
-                label: 'Docs',
-                to: 'test',
+                label: 'Import ABI',
+                to: 'import',
               },
               {
-                label: 'Docs',
-                to: 'nog-wa',
+                label: 'View smart contract',
+                to: 'contract',
               },
             ],
           },
