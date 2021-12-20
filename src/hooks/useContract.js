@@ -8,13 +8,16 @@ export default function useContract() {
 
 	const readContract = () => {
 		const contractString = localStorage.getItem('contract');
-		const contractData = JSON.parse(contractString);
 
-		setContract(contractData);
+		if (contractString) {
+			const contractData = JSON.parse(contractString);
 
-		getConstructor(contractData.abi);
-		getFunctions(contractData.abi);
-		getEvents(contractData.abi);
+			setContract(contractData);
+
+			getConstructor(contractData.abi);
+			getFunctions(contractData.abi);
+			getEvents(contractData.abi);
+		}
 	}
 
 	const getEvents = (data) => {

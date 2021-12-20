@@ -11,6 +11,45 @@ import styles from './styles.module.css';
 
 import { useContract } from "../../hooks";
 
+export const ContractNotLoaded = () => {
+	const { contractLoaded } = useContract();
+	if (!contractLoaded) {
+		return (
+			<p
+				style={{
+					marginBottom: '0.8rem'
+				}}
+			>
+				<span
+					style={{
+						borderStyle: 'solid',
+						borderWidth: '2px',
+						borderColor: '#ef4444',
+						display: 'inline-block',
+						borderRadius: '99px',
+						fontSize: '14px',
+						fontWeight: 'bold',
+						color: '#ef4444',
+						padding: '0.2rem 0.8rem',
+					}}
+				>
+					No contract imported
+				</span>
+				<a
+					href="/import"
+					style={{
+						marginLeft: '0.8rem',
+						fontWeight: 'bold'
+					}}
+				>
+					Import your ABI here first.
+				</a>
+			</p>
+		)
+	}
+	return null;
+};
+
 export const ContractData = ({ data = null }) => {
 	const { contract, events, functions } = useContract();
 	if (!contract || !data) {
@@ -178,7 +217,7 @@ export const ContractFunctions = () => {
 		);
 	}
 	return  (
-		<p className={styles.emptyState}>No <strong>functions</strong> found for this smart contract.</p>
+		<p className={styles.emptyState}>No <strong>functions</strong> found in this smart contract.</p>
 	);
 };
 
@@ -239,9 +278,11 @@ export const ContractEvents = () => {
 		);
 	}
 	return (
-		<p className={styles.emptyState}>No <strong>events</strong> found for this smart contract.</p>
+		<p className={styles.emptyState}>No <strong>events</strong> found in this smart contract.</p>
 	);
 };
+
+<ContractNotLoaded/>
 
 # Your smart contract docs
 
@@ -270,8 +311,6 @@ This representation of your smart contract is one on one with your provided ABI 
 ## Functions
 
 <ContractFunctions/>
-
-<br />
 
 ## Events (for EVM logging)
 
