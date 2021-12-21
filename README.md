@@ -26,8 +26,6 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-```
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
+[Vercel](https://vercel.com/) is used to deploy this app. Every push to the `master` branch will trigger a new deploy to production. *If something goes wrong, you can simply switch to the latest working version by promoting a previous version to production in the Vercel dashboard.*
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The production URL is [https://smart-docs.vercel.app/](https://smart-docs.vercel.app/)

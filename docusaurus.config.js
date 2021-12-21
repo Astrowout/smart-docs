@@ -6,15 +6,31 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Smart contract docs',
+  title: 'Smart Docs',
   tagline: 'Easiest documentation viewer for Soliditiy smart contracts.',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://smart-docs.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'Tech Express', // Usually your GitHub org/user name.
   projectName: 'smart-contract-docs', // Usually your repo name.
+
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com',
+      rel: "preconnect",
+    },
+    {
+      href: 'https://fonts.gstatic.com',
+      rel: "preconnect",
+      crossorigin: true,
+    },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap',
+      rel: "stylesheet",
+    },
+  ],
 
   presets: [
     [
@@ -48,9 +64,9 @@ const config = {
         },
       },
       navbar: {
-        title: 'Smart docs',
+        title: 'Smart Docs',
         logo: {
-          alt: 'Smart docs',
+          alt: 'Smart Docs',
           src: 'img/logo.svg',
           width: 36,
           height: 36,
@@ -85,7 +101,7 @@ const config = {
             title: 'Get started',
             items: [
               {
-                label: 'How to use Smart docs',
+                label: 'How to use Smart Docs',
                 to: 'intro',
               },
               {
@@ -93,7 +109,7 @@ const config = {
                 to: 'import',
               },
               {
-                label: 'View smart contract',
+                label: 'View your smart contract',
                 to: 'contract',
               },
             ],

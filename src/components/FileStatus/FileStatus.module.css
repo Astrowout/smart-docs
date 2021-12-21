@@ -1,0 +1,31 @@
+.status {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 16px;
+	margin-right: 0;
+	z-index: 99999;
+
+	border-radius: 4px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	padding: 10px 12px;
+	background-color: #22c55e;
+	color: white;
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+.missing {
+	background-color: #ef4444;
+}
+
+.link {
+	color: white;
+	text-decoration: underline;
+}
+
+.link:hover {
+	color: white;
+	opacity: 0.8;
+}
