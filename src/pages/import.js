@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { ImportOptions, FileUpload, PasteCode } from '../components';
+import { ImportOptions, FileUpload, PasteCode, ProductHunt } from '../components';
 
 export default function Import() {
   const {siteConfig} = useDocusaurusContext();
@@ -16,6 +16,7 @@ export default function Import() {
           <PasteCode />
           <FileUpload />
         </ImportOptions>
+        <ProductHunt />
       </main>
     </Layout>
   );

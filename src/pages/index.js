@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-import { HomepageHero, HomepageFeatures, ImportOptions, FileUpload, PasteCode } from '../components';
+import { HomepageHero, HomepageFeatures, ImportOptions, FileUpload, PasteCode, ProductHunt } from '../components';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -18,6 +18,7 @@ export default function Home() {
           <FileUpload />
         </ImportOptions>
         <HomepageFeatures />
+        <ProductHunt />
       </main>
     </Layout>
   );
