@@ -134,10 +134,6 @@ const config = {
                 label: 'LinkedIn',
                 href: 'https://www.linkedin.com/in/wout-vandesompele',
               },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/the__asstronaut',
-              },
             ],
           },
         ],
